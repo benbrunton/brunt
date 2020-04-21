@@ -1,5 +1,5 @@
 # Brunt
-An extremely simple game engine for the web
+An extremely simple game framework for the web
 
 ## Design Principles
 
