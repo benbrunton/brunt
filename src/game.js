@@ -3,10 +3,11 @@ import createLoop from './loop.js';
 import createControls from './controls.js';
 import { getSymbolMap } from './utils.js';
 
-const createGame = ({width, height, frameLimit}) => {
+const createGame = (settings) => {
     let _model = null;
     let controlsMap = {};
     let viewsMap = {};
+    const {width, height, frameLimit} = settings;
 
     const loop = createLoop(frameLimit);
 
@@ -58,7 +59,7 @@ const createGame = ({width, height, frameLimit}) => {
         controlsMap[mode] = map;
     };
 
-    const addViewMap = (mode, view) => {
+    const addView = (mode, view) => {
         if(!view) {
             view = mode;
             mode = 'default';
@@ -74,7 +75,7 @@ const createGame = ({width, height, frameLimit}) => {
         getActions, 
         getModes,
         addControlsMap,
-        addViewMap
+        addView
     };
 };
 

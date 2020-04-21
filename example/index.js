@@ -108,12 +108,12 @@ const createModel = () => {
 game.model(createModel());
 
 // View logic
-game.addViewMap(modes.get('GAME'), (draw, settings, state) => {
+game.addView(modes.get('GAME'), (draw, settings, state) => {
     draw.rectangle('#000000', 0, 0, WIDTH, HEIGHT);
     draw.circle('#FFFFFF', state.pos.x, state.pos.y, 10);
 });
 
-game.addViewMap(modes.get('PREGAME'), (draw, settings, state) => {
+game.addView(modes.get('PREGAME'), (draw, settings, state) => {
     draw.rectangle('#000000', 0, 0, WIDTH, HEIGHT);
     draw.text(
         '#FFFFFF',
