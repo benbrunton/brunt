@@ -124,5 +124,5 @@ game.addView(modes.get('PREGAME'), (draw, settings, state) => {
     );
 });
 
-
 brunt.attach('game-area', game);
+
