@@ -7,7 +7,7 @@ const createGame = (settings) => {
     let _model = null;
     let controlsMap = {};
     let viewsMap = {};
-    const {width, height, frameLimit} = settings;
+    const {width, height, frameLimit, blockSize} = settings;
 
     const loop = createLoop(frameLimit);
 
@@ -17,7 +17,7 @@ const createGame = (settings) => {
 
     const create = (target) => {
         const _controls = createControls(controlsMap);
-        const _view = createView(viewsMap, { width, height });
+        const _view = createView(viewsMap, { width, height, blockSize });
 
         const canvas = _view.getCanvas();
         target.appendChild(canvas);

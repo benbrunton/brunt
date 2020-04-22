@@ -1,10 +1,11 @@
+const directions = {
+    UP: Symbol("UP"),
+    DOWN: Symbol("DOWN"),
+    LEFT: Symbol("LEFT"),
+    RIGHT: Symbol("RIGHT")
+};
+
 const createSnake = (actions, modes, { width, height }) => {
-    const directions = {
-        UP: Symbol("UP"),
-        DOWN: Symbol("DOWN"),
-        LEFT: Symbol("LEFT"),
-        RIGHT: Symbol("RIGHT")
-    };
 
     let direction = null;
     let nextDirection = null;

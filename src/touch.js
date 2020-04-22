@@ -8,9 +8,9 @@ const createTouchController = () => {
             < evt.target.width / 2; 
 
         if(leftClick) {
-            lastEvent = touch.LEFT; 
+            lastEvent = touch.Left; 
         } else {
-            lastEvent = touch.RIGHT;;
+            lastEvent = touch.Right;;
         }
     };
 

@@ -43,8 +43,8 @@ game.addControlsMap(modes.get("GAME"), {
         [brunt.keys.ArrowUp]: actions.get("MOVE_UP"), 
     },
     touch: {
-        [brunt.touch.Left]: actions.get("MOVE_LEFT"),
-        [brunt.touch.Right]: actions.get("MOVE_RIGHT") 
+        [brunt.touch.Left]: actions.get("ROTATE_LEFT"),
+        [brunt.touch.Right]: actions.get("ROTATE_RIGHT") 
     }
 });
 
