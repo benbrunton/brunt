@@ -1,4 +1,4 @@
-import brunt from '../src/brunt.js';
+import brunt from '../../src/brunt.js';
 
 import createSnake from './snake.js';
 
