@@ -3,6 +3,7 @@ import { keys } from './constants.js';
 const createKeyboardController = () => {
 
     const keyRegister = {};
+    let deleteQueue = [];
 
     const onKeyDown = (evt) => {
         if(evt.repeat) {
@@ -13,11 +14,14 @@ const createKeyboardController = () => {
     };
 
     const onKeyUp = (evt) => {
-        delete keyRegister[evt.code];
+        deleteQueue.push(evt.code);
     };
 
     const getKeys = () => {
-        return Object.values(keyRegister);
+        const returnedKeys = Object.values(keyRegister);
+        deleteQueue.forEach(code => delete keyRegister[code]);
+        deleteQueue = [];
+        return returnedKeys;
     };
 
     return {
