@@ -1,10 +1,19 @@
 import createKeyboardController from './keyboard.js';
 import createTouchController from './touch.js';
+import createDomButtonController from './domButton.js';
 
 const createControls = (controlsMap) => {
 
     const keyboardController = createKeyboardController();
     const touchController = createTouchController();
+
+    const allButtons = [];
+    Object.values(controlsMap).forEach(({buttons = []}) => {
+      buttons.forEach(b => allButtons.push(b[0]));
+    });
+    const domButtonController = createDomButtonController(
+      allButtons
+    );
 
     const initListeners = (canvas) => {
         window.addEventListener('keyup',
@@ -17,6 +26,8 @@ const createControls = (controlsMap) => {
         canvas.addEventListener('touchstart',
             touchController.onClick);
 
+        domButtonController.listen();
+
     };
 
     const getActions = (mode) => {
@@ -27,6 +38,7 @@ const createControls = (controlsMap) => {
 
         const touchEvent = touchController.getEvent();
         const keys = keyboardController.getKeys();
+        const activeButtons = domButtonController.getActiveButtons();
         const map = controlsMap[mode];
         const currentActions = [];
 
@@ -53,6 +65,9 @@ const createControls = (controlsMap) => {
         if(map.touch && touchEvent !== null) {
             currentActions.push(map.touch[touchEvent]);
         }
+
+        map.buttons.filter(x => activeButtons.includes(x[0]))
+          .forEach(x => currentActions.push(x[1]));
 
         return currentActions;
     };
