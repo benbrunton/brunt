@@ -66,7 +66,7 @@ const createControls = (controlsMap) => {
             currentActions.push(map.touch[touchEvent]);
         }
 
-        map.buttons.filter(x => activeButtons.includes(x[0]))
+        map.buttons && map.buttons.filter(x => activeButtons.includes(x[0]))
           .forEach(x => currentActions.push(x[1]));
 
         return currentActions;
