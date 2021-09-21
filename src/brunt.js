@@ -9,7 +9,7 @@ const defaultSettings = {
 
 const brunt = (settings) => {
     const combinedSettings = {...defaultSettings, ...settings};
-    return createGame(settings);
+    return createGame(combinedSettings);
 };
 
 
